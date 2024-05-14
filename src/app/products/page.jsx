@@ -1,7 +1,11 @@
-import React from "react"
+import NavbarSection from "@/components/Navbar"
 
-const ProjectPage = () => {
-	return <div>this is project page</div>
+const Products = () => {
+	return (
+		<div>
+			<NavbarSection />
+		</div>
+	)
 }
 
-export default ProjectPage
+export default Products

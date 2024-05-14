@@ -1,6 +1,6 @@
 import NavbarSection from "@/components/Navbar"
 
-const Home = () => {
+const Cart = () => {
 	return (
 		<div>
 			<NavbarSection />
@@ -8,4 +8,4 @@ const Home = () => {
 	)
 }
 
-export default Home
+export default Cart
