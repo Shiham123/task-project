@@ -1,7 +1,11 @@
-import React from 'react';
+import NavbarSection from "@/components/Navbar"
 
 const Cart = () => {
-  return <div>this is cart</div>;
-};
+	return (
+		<div>
+			<NavbarSection />
+		</div>
+	)
+}
 
-export default Cart;
+export default Cart

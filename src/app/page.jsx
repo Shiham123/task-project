@@ -1,11 +1,11 @@
-import NavbarSection from '@/components/Navbar';
+import NavbarSection from "@/components/Navbar"
 
 const Home = () => {
-  return (
-    <div>
-      <NavbarSection />
-    </div>
-  );
-};
+	return (
+		<div>
+			<NavbarSection />
+		</div>
+	)
+}
 
-export default Home;
+export default Home

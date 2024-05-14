@@ -1,7 +1,11 @@
-import React from 'react';
+import NavbarSection from "@/components/Navbar"
 
 const Products = () => {
-  return <div>this is products</div>;
-};
+	return (
+		<div>
+			<NavbarSection />
+		</div>
+	)
+}
 
-export default Products;
+export default Products
