@@ -2,6 +2,7 @@
 
 import {Poppins} from "next/font/google"
 import {useEffect, useState} from "react"
+import AddedCartItem from "./AddedCartItem"
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -34,8 +35,6 @@ const AddToCart = () => {
 		}
 	}, [addedCart])
 
-	console.log(filterCartItem)
-
 	if (isLoading) return <p>...loading</p>
 
 	return (
@@ -56,6 +55,12 @@ const AddToCart = () => {
 				</div>
 
 				{/* here get local storage value */}
+				{filterCartItem &&
+					filterCartItem.map((item, index) => (
+						<div key={index}>
+							<AddedCartItem item={item} />
+						</div>
+					))}
 
 				<button className="bg-[#212529] px-4 text-white py-3 rounded-lg text-lg tracking-wide uppercase">
 					Checkout
