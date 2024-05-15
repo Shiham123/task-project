@@ -1,15 +1,19 @@
-"use client"
-
+import AddToCart from "@/components/AddToCart"
+import AllCart from "@/components/AllCart"
 import Footer from "@/components/Footer"
 import NavbarSection from "@/components/Navbar"
 
-const Home = () => {
+const Products = () => {
 	return (
 		<div>
 			<NavbarSection />
+			<div className="grid grid-cols-12 max-w-screen-2xl mx-auto">
+				<AllCart />
+				<AddToCart />
+			</div>
 			<Footer />
 		</div>
 	)
 }
 
-export default Home
+export default Products
