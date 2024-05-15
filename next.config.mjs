@@ -1,10 +1,13 @@
 // next.config.mjs
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-	images: {
-		domains: ["fakestoreapi.com"],
-	},
-}
+// const nextConfig = {
+// 	images: {
+// 		domains: ["fakestoreapi.com"],
+// 	},
+// }
+
+// export default nextConfig
+const nextConfig = {}
 
 export default nextConfig
