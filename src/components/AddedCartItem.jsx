@@ -11,11 +11,22 @@ const poppins = Poppins({
 })
 
 const AddedCartItem = ({item}) => {
-	const {title, rating, image, price} = item
+	const {id, title, rating, image, price} = item
 
 	const fullStars = Math.floor(rating.rate)
 	const halfStar = rating.rate - fullStars >= 0.5 ? 1 : 0
 	const emptyStars = 5 - fullStars - halfStar
+
+	const handleDeleteCart = (id) => {
+		const cartItems = JSON.parse(localStorage.getItem("cart")) || []
+		const findIdxLS = cartItems.findIndex((item) => item === id)
+
+		if (findIdxLS !== -1) {
+			cartItems.splice(findIdxLS, 1)
+		}
+
+		localStorage.setItem("cart", JSON.stringify(cartItems))
+	}
 
 	return (
 		<div
@@ -40,7 +51,12 @@ const AddedCartItem = ({item}) => {
 				{/* price and add to cart section */}
 				<div className="flex flex-row justify-between items-center">
 					<p className="text-lg py-4">${price}</p>
-					<FaTrashAlt color="red" size={30} className="cursor-pointer" />
+					<FaTrashAlt
+						onClick={() => handleDeleteCart(id)}
+						color="red"
+						size={30}
+						className="cursor-pointer"
+					/>
 				</div>
 			</div>
 		</div>
