@@ -27,7 +27,7 @@ const AllCart = () => {
 	}, [])
 
 	return (
-		<div className={`${poppins.className} col-span-8 my-12`}>
+		<div className={`${poppins.className} lg:col-span-8 md:col-span-12 col-span-12 my-12 p-8`}>
 			{/* heading div */}
 			<div className="flex justify-between items-center">
 				<h1 className="capitalize text-2xl font-semibold tracking-widest">Our All Products</h1>
@@ -63,7 +63,9 @@ const AllCart = () => {
 
 			<div
 				className={`${
-					isList ? "flex flex-col gap-x-6 gap-y-12" : "grid grid-cols-3 gap-x-6 gap-y-12"
+					isList
+						? "flex flex-col gap-x-6 gap-y-12"
+						: "grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12"
 				}`}
 			>
 				{products &&
