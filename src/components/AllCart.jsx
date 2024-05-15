@@ -50,7 +50,7 @@ const AllCart = () => {
 				</div>
 			</div>
 
-			<div className="grid grid-cols-3 gap-x-6">
+			<div className="grid grid-cols-3 gap-x-6 gap-y-12">
 				{products &&
 					products.map((cart, index) => (
 						<div key={index}>
