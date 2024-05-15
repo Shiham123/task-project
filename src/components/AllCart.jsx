@@ -15,6 +15,7 @@ const poppins = Poppins({
 
 const AllCart = () => {
 	const [products, setProducts] = useState([])
+	const [isGrid, setIsGrid] = useState(false)
 
 	useEffect(() => {
 		fetch("https://fakestoreapi.com/products")
@@ -31,8 +32,18 @@ const AllCart = () => {
 			<div className="flex justify-between items-center">
 				<h1 className="capitalize text-2xl font-semibold tracking-widest">Our All Products</h1>
 				<div className="flex justify-center gap-4 items-center">
-					<FaList size={40} />
-					<TfiLayoutGrid3Alt size={35} />
+					<FaList
+						size={40}
+						onClick={() => setIsGrid(true)}
+						className="cursor-pointer"
+						color={`${isGrid ? "blue" : "#212529"}`}
+					/>
+					<TfiLayoutGrid3Alt
+						size={35}
+						onClick={() => setIsGrid(false)}
+						className="cursor-pointer"
+						color={`${isGrid ? "#212529" : "blue"}`}
+					/>
 				</div>
 			</div>
 
@@ -50,11 +61,15 @@ const AllCart = () => {
 				</div>
 			</div>
 
-			<div className="grid grid-cols-3 gap-x-6 gap-y-12">
+			<div
+				className={`${
+					isGrid ? "flex flex-col gap-x-6 gap-y-12" : "grid grid-cols-3 gap-x-6 gap-y-12"
+				}`}
+			>
 				{products &&
 					products.map((cart, index) => (
 						<div key={index}>
-							<PerCart cart={cart} />
+							<PerCart isGrid={isGrid} cart={cart} />
 						</div>
 					))}
 			</div>

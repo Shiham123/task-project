@@ -20,7 +20,7 @@ const PerCart = (props) => {
 
 	return (
 		<div
-			className={`${poppins.className} bg-[#f7f8f8] flex flex-col justify-center px-8 h-[400px] rounded-lg`}
+			className={`${poppins.className}  bg-[#f7f8f8] flex flex-col justify-center px-8 h-[400px] rounded-lg`}
 		>
 			<div className="flex justify-center items-center p-4">
 				<Image src={image} alt="cart-img" width={100} height={100} />
