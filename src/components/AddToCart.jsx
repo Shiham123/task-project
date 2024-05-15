@@ -8,7 +8,7 @@ const poppins = Poppins({
 
 const AddToCart = () => {
 	return (
-		<div className={`${poppins.className} lg:col-span-4 mt-[11rem]`}>
+		<div className={`${poppins.className} lg:col-span-4 md:hidden hidden lg:block mt-[11rem]`}>
 			<div className="border-[1px] border-[#212529] p-2 flex flex-col justify-end items-end rounded-lg">
 				<button className="bg-[#212529] w-full text-white py-3 rounded-lg text-xl tracking-wide uppercase">
 					Selected Products

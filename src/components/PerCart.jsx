@@ -12,11 +12,20 @@ const poppins = Poppins({
 
 const PerCart = (props) => {
 	const {cart, isList} = props
-	const {title, image, price, rating} = cart
+	const {id, title, image, price, rating} = cart
 
 	const fullStars = Math.floor(rating.rate)
 	const halfStar = rating.rate - fullStars >= 0.5 ? 1 : 0
 	const emptyStars = 5 - fullStars - halfStar
+
+	const handleAddToCart = (cartId) => {
+		const existingCart = localStorage.getItem("cart")
+		let cartItems = existingCart ? JSON.parse(existingCart) : []
+
+		cartItems.push(cartId)
+
+		localStorage.setItem("cart", JSON.stringify(cartItems))
+	}
 
 	return (
 		<div
@@ -48,7 +57,12 @@ const PerCart = (props) => {
 				{/* price and add to cart section */}
 				<div className={`${isList ? "flex gap-12" : "flex justify-between items-center"}`}>
 					<p className="text-lg py-4">${price}</p>
-					<button className="bg-[#212529] text-white px-6 py-2 rounded-lg">Add to cart</button>
+					<button
+						onClick={() => handleAddToCart(id)}
+						className="bg-[#212529] text-white px-6 py-2 rounded-lg"
+					>
+						Add to cart
+					</button>
 				</div>
 			</div>
 		</div>
