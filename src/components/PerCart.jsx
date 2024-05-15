@@ -21,7 +21,7 @@ const PerCart = (props) => {
 	return (
 		<div
 			className={`${poppins.className} bg-[#f7f8f8] flex ${
-				isList ? "flex-row h-[250px] w-full gap-12" : "flex-col justify-center h-[500px]"
+				isList ? "flex-row h-[250px] w-full gap-12" : "flex-col justify-center h-[550px]"
 			} px-8 rounded-lg`}
 		>
 			<div className="flex justify-center items-center p-8">
