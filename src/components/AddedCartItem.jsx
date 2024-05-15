@@ -10,7 +10,7 @@ const poppins = Poppins({
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
-const AddedCartItem = ({item}) => {
+const AddedCartItem = ({item, isCartPage}) => {
 	const {id, title, rating, image, price} = item
 
 	const fullStars = Math.floor(rating.rate)
@@ -30,7 +30,11 @@ const AddedCartItem = ({item}) => {
 
 	return (
 		<div
-			className={`${poppins.className} bg-[#f7f8f8] flex flex-row h-[250px] w-full gap-12 px-8 rounded-lg my-4`}
+			className={`${poppins.className} bg-[#f7f8f8] ${
+				isCartPage
+					? "lg:w-[550px] md:w-[550px] lg:flex md:flex lg:flex-row md:flex-row flex flex-col justify-center items-center w-[400px]"
+					: "h-[250px] w-full"
+			} flex flex-row  gap-12 px-8 rounded-lg my-4`}
 		>
 			<div className="flex justify-center items-center p-8">
 				<Image src={image} alt="cart-img" width={100} height={100} />
