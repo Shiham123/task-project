@@ -4,7 +4,7 @@ import Image from "next/image"
 
 const PerCart = (props) => {
 	const {cart} = props
-	const {title, price, description, category, image, rating} = cart
+	const {title, image} = cart
 
 	return (
 		<div className="border-2 border-black">
