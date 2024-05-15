@@ -1,7 +1,11 @@
+"use client"
+
 import {TfiLayoutGrid3Alt} from "react-icons/tfi"
 import {FaList} from "react-icons/fa6"
 import {CiSearch} from "react-icons/ci"
 import {Poppins} from "next/font/google"
+import {useEffect, useState} from "react"
+import PerCart from "./PerCart"
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -10,6 +14,16 @@ const poppins = Poppins({
 })
 
 const AllCart = () => {
+	const [products, setProducts] = useState([])
+	const [error, setError] = useState("")
+
+	useEffect(() => {
+		fetch("https://fakestoreapi.com/products")
+			.then((res) => res.json())
+			.then((data) => setProducts(data))
+			.catch((error) => setError(error.message))
+	}, [])
+
 	return (
 		<div className={`${poppins.className} col-span-8 my-12`}>
 			{/* heading div */}
@@ -20,6 +34,8 @@ const AllCart = () => {
 					<TfiLayoutGrid3Alt size={35} />
 				</div>
 			</div>
+
+			{/* search bar */}
 			<div className="w-full">
 				<div className="relative">
 					<input
@@ -31,6 +47,15 @@ const AllCart = () => {
 						<CiSearch size={30} />
 					</div>
 				</div>
+			</div>
+
+			<div className="grid grid-cols-3 gap-x-6">
+				{products &&
+					products.map((cart, index) => (
+						<div key={index}>
+							<PerCart cart={cart} />
+						</div>
+					))}
 			</div>
 		</div>
 	)
