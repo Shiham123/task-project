@@ -3,8 +3,8 @@
 import {useState} from "react"
 import {Poppins} from "next/font/google"
 import Link from "next/link"
-import {AiOutlineShopping} from "react-icons/ai"
 import {HiMiniBars3} from "react-icons/hi2"
+import Logo from "@/shared/Logo"
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -19,14 +19,7 @@ const NavbarSection = () => {
 		<div className="bg-[#212529] py-4">
 			<div className="flex justify-between items-center max-w-screen-2xl mx-auto">
 				{/* nav section one */}
-				<Link href="/">
-					<div className="flex justify-center items-center">
-						<AiOutlineShopping color="white" size={70} />
-						<p className={`${poppins.className} font-bold text-white text-2xl mt-2`}>
-							E-commerce site
-						</p>
-					</div>
-				</Link>
+				<Logo logoHeading="E-commerce site" />
 
 				{/* Hamburger menu for mobile and medium screens */}
 				<div className="block lg:hidden">
