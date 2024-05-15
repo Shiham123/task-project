@@ -15,16 +15,24 @@ const poppins = Poppins({
 
 const AllCart = () => {
 	const [products, setProducts] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
 	const [isList, setIsList] = useState(false)
 
 	useEffect(() => {
 		fetch("https://fakestoreapi.com/products")
 			.then((res) => res.json())
-			.then((data) => setProducts(data))
+			.then((data) => {
+				setProducts(data)
+				setIsLoading(false)
+			})
 			.catch((error) => {
 				throw new Error(error.message)
 			})
 	}, [])
+
+	if (isLoading) {
+		return <div>Loading...</div>
+	}
 
 	return (
 		<div className={`${poppins.className} lg:col-span-8 md:col-span-12 col-span-12 my-12 p-8`}>
