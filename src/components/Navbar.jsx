@@ -19,7 +19,7 @@ const NavbarSection = () => {
 		<div className="bg-[#212529] py-4">
 			<div className="flex justify-between items-center max-w-screen-2xl mx-auto">
 				{/* nav section one */}
-				<Logo logoHeading="E-commerce site" />
+				<Logo logoHeading="E-commerce site" responsive="flex justify-center items-center" />
 
 				{/* Hamburger menu for mobile and medium screens */}
 				<div className="block lg:hidden">

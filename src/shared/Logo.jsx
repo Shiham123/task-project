@@ -9,10 +9,10 @@ const poppins = Poppins({
 })
 
 const Logo = (props) => {
-	const {logoHeading} = props
+	const {logoHeading, responsive} = props
 	return (
 		<Link href="/">
-			<div className="flex justify-center items-center">
+			<div className={`${responsive}`}>
 				<AiOutlineShopping color="white" size={70} />
 				<p className={`${poppins.className} font-bold text-white text-2xl mt-2`}>{logoHeading}</p>
 			</div>

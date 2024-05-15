@@ -16,16 +16,16 @@ const poppins = Poppins({
 const Footer = () => {
 	return (
 		<div className={`${poppins.className} bg-[#212529]`}>
-			<div className="max-w-screen-2xl mx-auto flex justify-between items-center py-12">
+			<div className="max-w-screen-2xl mx-auto lg:flex lg:justify-between lg:items-center py-12 md:grid md:grid-cols-2 grid grid-cols-2 px-4 gap-x-4 gap-y-16">
 				<div className="text-white">
-					<Logo logoHeading="e-commerce site" />
+					<Logo logoHeading="e-commerce site" responsive="flex justify-start items-center" />
 					<p className="py-2">Got question? Call us 24/7</p>
 					<h2 className="py-4 font-semibold text-xl">+02 055 4156</h2>
 					<p className="py-2 tracking-widest">
 						Register now & get you 10% <br /> offer from first order!
 					</p>
 					<h2 className="py-2 font-semibold text-xl">Join us</h2>
-					<div className="flex justify-between items-center py-2">
+					<div className="flex justify-between md:justify-start gap-4 items-center py-2">
 						<AiOutlineInstagram size={50} />
 						<AiOutlineLinkedin size={50} />
 						<AiOutlineTwitter size={50} />
