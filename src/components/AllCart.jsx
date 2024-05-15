@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 const AllCart = () => {
 	const [products, setProducts] = useState([])
-	const [isGrid, setIsGrid] = useState(false)
+	const [isList, setIsList] = useState(false)
 
 	useEffect(() => {
 		fetch("https://fakestoreapi.com/products")
@@ -34,15 +34,15 @@ const AllCart = () => {
 				<div className="flex justify-center gap-4 items-center">
 					<FaList
 						size={40}
-						onClick={() => setIsGrid(true)}
+						onClick={() => setIsList(true)}
 						className="cursor-pointer"
-						color={`${isGrid ? "blue" : "#212529"}`}
+						color={`${isList ? "blue" : "#212529"}`}
 					/>
 					<TfiLayoutGrid3Alt
 						size={35}
-						onClick={() => setIsGrid(false)}
+						onClick={() => setIsList(false)}
 						className="cursor-pointer"
-						color={`${isGrid ? "#212529" : "blue"}`}
+						color={`${isList ? "#212529" : "blue"}`}
 					/>
 				</div>
 			</div>
@@ -63,13 +63,13 @@ const AllCart = () => {
 
 			<div
 				className={`${
-					isGrid ? "flex flex-col gap-x-6 gap-y-12" : "grid grid-cols-3 gap-x-6 gap-y-12"
+					isList ? "flex flex-col gap-x-6 gap-y-12" : "grid grid-cols-3 gap-x-6 gap-y-12"
 				}`}
 			>
 				{products &&
 					products.map((cart, index) => (
 						<div key={index}>
-							<PerCart isGrid={isGrid} cart={cart} />
+							<PerCart isList={isList} cart={cart} />
 						</div>
 					))}
 			</div>

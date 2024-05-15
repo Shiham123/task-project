@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 const PerCart = (props) => {
-	const {cart} = props
+	const {cart, isList} = props
 	const {title, image, price, rating} = cart
 
 	const fullStars = Math.floor(rating.rate)
@@ -20,25 +20,36 @@ const PerCart = (props) => {
 
 	return (
 		<div
-			className={`${poppins.className}  bg-[#f7f8f8] flex flex-col justify-center px-8 h-[400px] rounded-lg`}
+			className={`${poppins.className} bg-[#f7f8f8] flex ${
+				isList ? "flex-row h-[250px] w-full gap-12" : "flex-col justify-center h-[550px]"
+			} px-8 rounded-lg`}
 		>
-			<div className="flex justify-center items-center p-4">
-				<Image src={image} alt="cart-img" width={100} height={100} />
+			<div className="flex justify-center items-center p-8">
+				<Image
+					src={image}
+					alt="cart-img"
+					width={`${isList ? 150 : 100}`}
+					height={`${isList ? 150 : 100}`}
+				/>
 			</div>
-			<h1 className="text-[#212529] text-lg py-4 tracking-wide">{title}</h1>
-			<div className="flex gap-1">
-				{[...Array(fullStars)].map((_, index) => (
-					<FaStar key={`full-${index}`} color="#f6aa24" />
-				))}
-				{halfStar === 1 && <FaStarHalfAlt color="#f6aa24" />}
-				{[...Array(emptyStars)].map((_, index) => (
-					<FaRegStar key={`empty-${index}`} color="#f6aa24" />
-				))}
-			</div>
-			<p className="text-sm opacity-50 py-4">({rating.count} reviews)</p>
-			<div className="flex justify-between items-center">
-				<p className="text-lg py-4">${price}</p>
-				<button className="bg-[#212529] text-white px-6 py-2 rounded-lg">Add to cart</button>
+			<div>
+				<h1 className="text-[#212529] text-lg py-4 tracking-wide">{title}</h1>
+				<div className="flex gap-1">
+					{[...Array(fullStars)].map((_, index) => (
+						<FaStar key={`full-${index}`} color="#f6aa24" />
+					))}
+					{halfStar === 1 && <FaStarHalfAlt color="#f6aa24" />}
+					{[...Array(emptyStars)].map((_, index) => (
+						<FaRegStar key={`empty-${index}`} color="#f6aa24" />
+					))}
+				</div>
+				<p className="text-sm opacity-50 py-4">({rating.count} reviews)</p>
+
+				{/* price and add to cart section */}
+				<div className={`${isList ? "flex gap-12" : "flex justify-between items-center"}`}>
+					<p className="text-lg py-4">${price}</p>
+					<button className="bg-[#212529] text-white px-6 py-2 rounded-lg">Add to cart</button>
+				</div>
 			</div>
 		</div>
 	)
