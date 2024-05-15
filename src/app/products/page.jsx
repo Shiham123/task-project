@@ -9,7 +9,7 @@ const Products = () => {
 			<NavbarSection />
 			<div className="grid grid-cols-12 max-w-screen-2xl mx-auto">
 				<AllCart />
-				<AddToCart />
+				<AddToCart isCartPage={false} />
 			</div>
 			<Footer />
 		</div>
